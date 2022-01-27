@@ -6,23 +6,23 @@
 /*   By: mkim3 <mkim3@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 21:59:08 by mkim3             #+#    #+#             */
-/*   Updated: 2022/01/27 19:01:51 by mkim3            ###   ########.fr       */
+/*   Updated: 2022/01/27 19:04:18 by mkim3            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(char const *args, ...)
+int ft_printf(char const *args, ...)
 {
-	va_list	ap;
-	int		total;
-
+	va_list ap;
+	int total;
+	
 	total = 0;
 	va_start(ap, args);
 	while (1)
 	{
 		if (*args == '\0')
-			break ;
+			break;
 		if (*args == '%')
 		{
 			args++;
@@ -34,13 +34,11 @@ int	ft_printf(char const *args, ...)
 			total++;
 		}
 		args++;
-		total++;
 	}
-	va_end(ap);
 	return (total);
 }
 
-int	ft_check_type(char c, va_list ap)
+int ft_check_type(char c, va_list ap)
 {
 	int	num;
 
